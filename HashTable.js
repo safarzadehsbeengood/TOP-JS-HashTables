@@ -1,4 +1,4 @@
-import Bucket from './Bucket.js';
+import Bucket from "./Bucket.js";
 
 export default class HashTable {
   constructor(buckets) {
@@ -7,14 +7,14 @@ export default class HashTable {
     this.size = 0;
   }
 
-   hash(key) {
-    let hashCode = 0; 
+  hash(key) {
+    let hashCode = 0;
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
-     hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.buckets;
+      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.buckets;
     }
     return hashCode;
- } 
+  }
 
   set(key, value) {
     const hashCode = this.hash(key);
@@ -53,11 +53,13 @@ export default class HashTable {
         return false;
       }
     } else {
-      return false; 
+      return false;
     }
   }
 
-  length() { return this.size; }
+  length() {
+    return this.size;
+  }
 
   clear() {
     for (let i = 0; i < this.buckets; i++) {
